@@ -4,15 +4,17 @@ using namespace std;
 
 int main() {
     ifstream myfile("example.wav", ios::in | ios::binary);
-    if (!myfile) {     // ¸¸ÀÏ ÆÄÀÏÀÌ ¾øÀ¸¸é ³¡³½´Ù. 
+    if (!myfile) {     // ë§Œì¼ íŒŒì¼ì´ ì—†ìœ¼ë©´ ëë‚¸ë‹¤. 
         cout << "cant read example.wav\n";
         return 666;
     }
     char header[44];
     myfile.read(header, 44);
-    unsigned int* SampleRate;
-    SampleRate = (unsigned int*)(header + 24);
-
+   
+    unsigned int* SampleRate; SampleRate = (unsigned int*)(header + 24); cout << "SampleRate = " << *SampleRate << endl;
+    unsigned int* ByteRate; ByteRate = (unsigned int*)(header + 28); cout << "ByteRate = " << *ByteRate << endl;
+    unsigned short* NumChannels; NumChannels = (unsigned short*)(header + 20); cout << "NumChannels = " << *NumChannels << endl;
+    
 
     short data[1000];
     myfile.seekg(44);
