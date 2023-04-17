@@ -13,7 +13,7 @@ int main() {
    
     unsigned int* SampleRate; SampleRate = (unsigned int*)(header + 24); cout << "SampleRate = " << *SampleRate << endl;
     unsigned int* ByteRate; ByteRate = (unsigned int*)(header + 28); cout << "ByteRate = " << *ByteRate << endl;
-    unsigned short* NumChannels; NumChannels = (unsigned short*)(header + 20); cout << "NumChannels = " << *NumChannels << endl;
+    unsigned short* NumChannels; NumChannels = (unsigned short*)(header + 22); cout << "NumChannels = " << *NumChannels << endl;
     
 
     short data[1000];
